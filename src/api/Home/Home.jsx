@@ -41,7 +41,9 @@ export default function Home() {
           <BlogThumbnail />
           <BlogThumbnail />
         </div>
-        <button className={styles.button}>View All</button>
+        <Link to="/blogs" className={styles.button}>
+          View All
+        </Link>
       </div>
       <div className="subscribe_news">
         <h2>Subscribe to Our Newsletter</h2>
