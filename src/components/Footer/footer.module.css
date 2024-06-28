@@ -1,0 +1,23 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  border-top: 1px solid #e9ecef;
+}
+
+.logo {
+  font-family: "courier new", courier, monospace, sans-serif;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.copyright {
+  font-size: small;
+  color: #333;
+}
