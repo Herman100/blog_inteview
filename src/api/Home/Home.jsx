@@ -20,7 +20,7 @@ export default function Home() {
           </p>
           <button>
             <Link
-              className={styles.link}
+              className={styles.button}
               to={currentUser ? "/write" : "/login"}
             >
               Write
