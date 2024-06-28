@@ -19,7 +19,6 @@ export default function Header() {
     }
   };
 
-  // console.log(currentUser);
   return (
     <div className={styles.header}>
       <div>
@@ -45,11 +44,9 @@ export default function Header() {
         </Link>
       </div>
       {currentUser ? (
-        <>
-          <button className={styles.logout} onClick={handleLogout}>
-            Logout
-          </button>
-        </>
+        <button className={styles.logout} onClick={handleLogout}>
+          Logout
+        </button>
       ) : (
         <button className={styles.login} onClick={() => navigate("/login")}>
           Login

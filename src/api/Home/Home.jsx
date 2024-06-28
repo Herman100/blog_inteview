@@ -3,8 +3,11 @@ import styles from "./home.module.css";
 import { Link } from "react-router-dom";
 import BlogThumbnail from "../../components/BlogPost/BlogThumbnail";
 import Newsletter from "../Newsletter/Newsletter";
+import { useAuth } from "../../contexts/authcontext/AuthContextProvider";
 
 export default function Home() {
+  const { currentUser } = useAuth();
+
   return (
     <div className={styles.home}>
       <div className={styles.hero}>
@@ -16,8 +19,11 @@ export default function Home() {
             start writing.
           </p>
           <button>
-            <Link className={styles.button} to="/write">
-              Write a Blog
+            <Link
+              className={styles.link}
+              to={currentUser ? "/write" : "/login"}
+            >
+              Write
             </Link>
           </button>
         </div>
