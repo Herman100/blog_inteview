@@ -23,7 +23,7 @@ export default function Home() {
               className={styles.button}
               to={currentUser ? "/write" : "/login"}
             >
-              Write
+              Write a Blog Now
             </Link>
           </button>
         </div>
