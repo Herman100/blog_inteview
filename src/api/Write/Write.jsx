@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import styles from "./write.module.css";
 import { addBlogCover, addBlogPost } from "../../firebase/upload_blogpost";
+import ProtectedRoute from "../../protectedroute/ProtectedRoute";
 
 function Write() {
   const titleRef = useRef();
@@ -21,47 +22,49 @@ function Write() {
   };
 
   return (
-    <div className={styles.write_blog}>
-      <form className={styles.write_form} onSubmit={(e) => handleSubmit(e)}>
-        <div className={styles.write_form_group}>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            placeholder="Title"
-            className={styles.write_input}
-            autoFocus={true}
-            required
-            ref={titleRef}
-          />
-        </div>
-        <div className={styles.write_form_group}>
-          <label htmlFor="cover_image">Cover Image</label>
-          <input
-            type="file"
-            id="cover_image"
-            placeholder="Select a cover image..."
-            accept="image/*"
-            className={styles.write_input}
-            ref={coverImageRef}
-          />
-        </div>
-        <div className={styles.write_form_group}>
-          <label htmlFor="story">Story</label>
-          <textarea
-            placeholder="Tell your story..."
-            type="text"
-            className={styles.textarea}
-            cols={150}
-            rows={200}
-            required
-            ref={storyRef}
-          ></textarea>
-        </div>
-        <button type="submit" className={styles.write_submit}>
-          Publish
-        </button>
-      </form>
-    </div>
+    <ProtectedRoute>
+      <div className={styles.write_blog}>
+        <form className={styles.write_form} onSubmit={(e) => handleSubmit(e)}>
+          <div className={styles.write_form_group}>
+            <label htmlFor="title">Title</label>
+            <input
+              type="text"
+              placeholder="Title"
+              className={styles.write_input}
+              autoFocus={true}
+              required
+              ref={titleRef}
+            />
+          </div>
+          <div className={styles.write_form_group}>
+            <label htmlFor="cover_image">Cover Image</label>
+            <input
+              type="file"
+              id="cover_image"
+              placeholder="Select a cover image..."
+              accept="image/*"
+              className={styles.write_input}
+              ref={coverImageRef}
+            />
+          </div>
+          <div className={styles.write_form_group}>
+            <label htmlFor="story">Story</label>
+            <textarea
+              placeholder="Tell your story..."
+              type="text"
+              className={styles.textarea}
+              cols={150}
+              rows={200}
+              required
+              ref={storyRef}
+            ></textarea>
+          </div>
+          <button type="submit" className={styles.write_submit}>
+            Publish
+          </button>
+        </form>
+      </div>
+    </ProtectedRoute>
   );
 }
 
